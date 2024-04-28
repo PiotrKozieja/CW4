@@ -1,8 +1,5 @@
-package ecommerce;
+package ecommerce.catalog;
 
-import ecommerce.catalog.ArrayListProductStorage;
-import ecommerce.catalog.Product;
-import ecommerce.catalog.ProductCatalog;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

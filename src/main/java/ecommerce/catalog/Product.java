@@ -8,7 +8,6 @@ public class Product{
     private final UUID id;
     private final String name;
     private final String description;
-
     private BigDecimal price;
 
 
