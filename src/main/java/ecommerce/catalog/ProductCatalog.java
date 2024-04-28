@@ -9,29 +9,22 @@ import  java.util.*;
 import static java.util.Arrays.stream;
 
 public class ProductCatalog {
-    private ArrayList<Product> products;
+    ProductStorage productStorage;
 
-    public ProductCatalog() {
-        this.products = new ArrayList<>();
+    public ProductCatalog(ProductStorage productStorage) {
+        this.productStorage = productStorage;
     }
 
-    public List<Product> allProducts() {
-        return Collections.unmodifiableList(products);
-    }
+    public List<Product> allProducts() {return productStorage.allProducts();}
 
     public String addProduct(String name, String description){
         UUID id = UUID.randomUUID();
         Product newProduct = new Product(id,name,description);
-        products.add(newProduct);
+        productStorage.addProduct(newProduct);
         return id.toString();
     }
-    public Product getProductById(String id){
-        return  products.stream()
-                .filter(product -> product.getId().equals(id))
-                .findFirst()
-                .get();
-    }
-    public void ChangePrice(String id, BigDecimal price){
+    public Product getProductById(String id){return  productStorage.getProductBy(id);}
+    public void changePrice(String id, BigDecimal price){
         Product loadedProduct = getProductById(id);
         loadedProduct.setPrice(price);
     }
