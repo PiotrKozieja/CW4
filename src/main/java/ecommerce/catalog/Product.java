@@ -5,11 +5,13 @@ import java.util.UUID;
 
 public class Product{
 
-    private final UUID id;
-    private final String name;
-    private final String description;
+    private UUID id;
+    private String name;
+    private String description;
     private BigDecimal price;
 
+    public Product() {
+    }
 
     public Product(UUID id, String name, String description) {
         this.id = id;
