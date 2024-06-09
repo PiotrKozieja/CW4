@@ -2,6 +2,10 @@ package ecommerce;
 
 import ecommerce.catalog.ArrayListProductStorage;
 import ecommerce.catalog.ProductCatalog;
+import ecommerce.payu.PayUPaymentGateway;
+import ecommerce.reservation.ReservationRepository;
+import ecommerce.sales.InMemoryCartStorage;
+import ecommerce.sales.OfferCalculator;
 import ecommerce.sales.SalesController;
 import ecommerce.sales.SalesFacade;
 import org.springframework.boot.SpringApplication;
@@ -22,7 +26,11 @@ public class App {
     }
     @Bean
     SalesFacade createMySalesFacade(){
-        return new SalesFacade();
-    }
+        return new SalesFacade(
+                new InMemoryCartStorage(),
+                new OfferCalculator(),
+                new PayUPaymentGateway(),
+                new ReservationRepository());
+    };
 
 }
