@@ -52,6 +52,7 @@ public class SalesHttpTest {
                 .setFirstName("Piotr")
                 .setLastName("Kozieja")
                 .setEmail("example@example.com");
+
         ResponseEntity<ReservationDetail> reservationDetailResponseEntity =http.postForEntity(
                 acceptOfferUrl, null, ReservationDetail.class);
 

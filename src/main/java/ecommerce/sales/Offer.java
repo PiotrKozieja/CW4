@@ -6,7 +6,8 @@ public class Offer {
     public int getItemsCount(){
         return 0;
     }
-    public BigDecimal getTotal(){
+
+    public BigDecimal getTotal() {
         return BigDecimal.ZERO;
     }
 }
